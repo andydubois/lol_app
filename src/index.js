@@ -11,6 +11,9 @@ import {takeEvery, put} from "redux-saga/effects";
 import axios from "axios"
 import logger from "redux-logger";
 
+import rootReducer from './redux/reducers'; // imports ./redux/reducers/index.js
+import rootSaga from './redux/sagas'; // imports ./redux/sagas/index.js
+
 //Create Saga Middleware
 const sagaMiddleware = createSagaMiddleware();
 
@@ -33,18 +36,6 @@ const store = createStore(
 // rootSaga contains all of our other sagas
 sagaMiddleware.run(rootSaga);
 
-function* rootSaga() {
-  yield takeEvery("FETCH_SUMMONER", fetchSummoner);
-}
-
-
-function* fetchSummoner(action) {
-  console.log("summoner search");
-  try{
-    let summonerSearch = action.payload;
-    let response = yield axios.get(``)
-  }
-}
 
 
 ReactDOM.render(
