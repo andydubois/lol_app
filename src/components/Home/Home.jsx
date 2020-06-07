@@ -19,6 +19,7 @@ class Home extends Component {
         this.setState({
             summonerName: event.target.value
         });
+        console.log(this.state)
     };
     render() {
         return (
