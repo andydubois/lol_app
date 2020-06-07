@@ -10,7 +10,7 @@ router.get("/:searchTerm", (req, res) => {
     console.log("THIS THE SEARCH TERM SERVER SIDE", searchTerm);
   axios
     .get(
-      `http://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=${req.params.searchTerm}`
+      `http://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${searchTerm}?api_key=${process.env.RIOT_API_KEY}`
     )
     .then(response => {
       console.log("success server side giphy GET", response.data);
