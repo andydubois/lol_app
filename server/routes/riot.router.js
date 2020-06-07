@@ -10,14 +10,14 @@ router.get("/:searchTerm", (req, res) => {
     console.log("THIS THE SEARCH TERM SERVER SIDE", searchTerm);
   axios
     .get(
-      `http://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${searchTerm}?api_key=${process.env.RIOT_API_KEY}`
+      `http://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${searchTerm}?api_key=${process.env.REACT_APP_RIOT_API_KEY}`
     )
     .then(response => {
-      console.log("success server side giphy GET", response.data);
+      console.log("success server side summoner GET", response.data);
       res.send(response.data);
     })
     .catch(error => {
-      console.log("error in server side GET giphy", error);
+      console.log("error in server side summoner GET", error);
     });
 });
 
