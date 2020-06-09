@@ -32,5 +32,7 @@ class Home extends Component {
         )
     }
 }
-
-export default Home;
+const mapStateToProps = store => ({
+    store
+})
+export default connect(mapStateToProps)(Home);
