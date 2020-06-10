@@ -1,22 +1,19 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 5000;
 //ROUTERS
-const riotRouter = require("./routes/riot.router.js");
+const riotRouter = require("./routes/riot.router");
 // App Set //
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 5000;
 
 // Body parser middleware
-app.use(bodyParser.json());
+app.use(bodyParser.json()); // needed for angular requests
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("build"));
 
 /** ---------- ROUTES ---------- **/
 app.use("/api/riot", riotRouter);
-
-// Serve static files
-app.use(express.static('build'));
-
 
 /** ---------- START SERVER ---------- **/
 app.listen(port, function () {
