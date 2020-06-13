@@ -7,7 +7,8 @@ function* fetchSummoner(action) {
     // let summonerSearch = action.payload;
     console.log("action.payload is ", action.payload)
     let response = yield axios.get(`api/riot/${action.payload}`);
-    console.log("The response is", response)
+    console.log("headers", response.headers);
+    console.log("The response is", response);
     console.log("saga riot summoner response", response.data);
     yield put({
         type: "SET_SUMMONER",

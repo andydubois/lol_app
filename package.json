@@ -25,7 +25,7 @@
   "scripts": {
     "start": "node server/server.js",
     "client": "react-scripts start",
-    "server": "nodemon --watch server server/server.js",
+    "server": "nodemon --watch server server/server.js node --max-http-header-size 81000",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
