@@ -17,7 +17,7 @@ router.get("/:searchTerm", (req, res) => {
     .then(function (accountInfo) {
       // do something with accountInfo
       console.log("success server side match list GET", accountInfo);
-      res.send(accountInfo);
+      res.send(accountInfo.matches);
       console.log(accountInfo);
     })
     .catch((error) => {

@@ -31,6 +31,8 @@ class Home extends Component {
                     <input type="text" onChange={this.handleChangeFor} />
                     <button type="submit">Search</button>
                 </form>
+        <div>{this.state.summonerName}
+        </div>
                 {/* <div>
                     <ul>
                         {this.props.store.match.matches.map(champion => {
