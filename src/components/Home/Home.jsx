@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 //components
-import ChampionList from '../ChampionList/ChampionList'
+
 
 
 class Home extends Component {
@@ -15,7 +15,7 @@ class Home extends Component {
             payload: this.state.summonerName
         });
         console.log(this.state);
-        this.props.history.push(`/`)
+        this.props.history.push(`/summoner/${this.props.store.summoner.accountId}`)
     }
 
     handleChangeFor = event => {

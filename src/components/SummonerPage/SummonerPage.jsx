@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-
+//components
+import ChampionList from '../ChampionList/ChampionList'
 class SummonerPage extends Component {
   state = {
     summonerName: "",
@@ -23,10 +24,13 @@ class SummonerPage extends Component {
   };
   render() {
     return (
-      <li>
-        {this.props.champion.championObject.name}
-        {this.props.champion.championObject.id}
-      </li>
+      <div>
+        <ul>
+          {this.props.store.match.matches.map((champion) => {
+            return <ChampionList champion={champion} />;
+          })}
+        </ul>
+      </div>
     );
   }
 }
