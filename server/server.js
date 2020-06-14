@@ -3,7 +3,8 @@ const app = express();
 const bodyParser = require("body-parser");
 const port = process.env.PORT || 5000;
 //ROUTERS
-const riotRouter = require("./routes/riot.router");
+const summonerRouter = require("./routes/summoner.router");
+const matchesRouter = require("./routes/matches.router");
 // App Set //
 const PORT = process.env.PORT || 5000;
 
@@ -13,7 +14,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("build"));
 
 /** ---------- ROUTES ---------- **/
-app.use("/api/riot", riotRouter);
+app.use("/api/summoner", summonerRouter);
+app.use("/api/matches", matchesRouter);
 
 /** ---------- START SERVER ---------- **/
 app.listen(port, function () {

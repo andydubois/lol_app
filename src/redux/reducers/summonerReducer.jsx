@@ -1,4 +1,4 @@
-const summoner = (state = [], action) => {
+const summonerReducer = (state = [], action) => {
     switch (action.type) {
         case "SET_SUMMONER":
             return action.payload;
@@ -7,4 +7,4 @@ const summoner = (state = [], action) => {
     }
 };
 
-export default summoner;
+export default summonerReducer;
