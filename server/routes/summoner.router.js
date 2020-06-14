@@ -10,7 +10,8 @@ LeagueAPI = new LeagueAPI(leagueAPIKey, Region.NA);
 
 router.get("/:searchTerm", (req, res) => {
   let summonerName = req.params.searchTerm
-  LeagueAPI.getSummonerByName(summonerName)
+  LeagueAPI.initialize()
+    .then( () => {return LeagueAPI.getSummonerByName(summonerName) })
     .then(function (accountInfo) {
       // do something with accountInfo
       console.log("success server side summoner GET", accountInfo);
@@ -19,8 +20,23 @@ router.get("/:searchTerm", (req, res) => {
     })
     .catch((error) => {
       console.log("error in server side summoner GET", error);
-    });
-});
+    });// LeagueAPI returned objects will now have details from DDRagon API.
+    })
+
+
+
+
+//   LeagueAPI.getSummonerByName(summonerName)
+//     .then(function (accountInfo) {
+//       // do something with accountInfo
+//       console.log("success server side summoner GET", accountInfo);
+//       res.send(accountInfo);
+//       console.log(accountInfo);
+//     })
+//     .catch((error) => {
+//       console.log("error in server side summoner GET", error);
+//     });
+// });
 
 // router.get("/:searchTerm", (req, res) => {
 //   // return all categories
