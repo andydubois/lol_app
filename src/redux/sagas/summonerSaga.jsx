@@ -1,12 +1,14 @@
 import axios from "axios";
 import {put, takeEvery} from "redux-saga/effects";
+// let LeagueAPI = require('leagueapiwrapper');
+// LeagueAPI = new LeagueAPI(leagueAPIKey, Region.NA);
 
 function* fetchSummoner(action) {
   console.log("summoner search");
   try {
     // let summonerSearch = action.payload;
     console.log("action.payload is ", action.payload)
-    let response = yield axios.get(`api/riot/${action.payload}`);
+    let response = yield axios.get(`http://localhost:5000/api/riot/${action.payload}`);
     console.log("headers", response.headers);
     console.log("The response is", response);
     console.log("saga riot summoner response", response.data);

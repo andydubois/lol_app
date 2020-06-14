@@ -10,7 +10,7 @@ router.get('/:searchTerm', (req, res) => {
     console.log("THIS THE SEARCH TERM SERVER SIDE", searchTerm);
   axios
     .get(
-      `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/ThrowinOakenfeed?api_key=${process.env.REACT_APP_RIOT_API_KEY}`
+      `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${req.params.searchTerm}?api_key=${process.env.REACT_APP_RIOT_API_KEY}`
     )
     .then((response) => {
       console.log("success server side summoner GET", response.data);
