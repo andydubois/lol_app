@@ -8,7 +8,6 @@ let LeagueAPI = require("leagueapiwrapper");
 let leagueAPIKey = process.env.REACT_APP_RIOT_API_KEY;
 LeagueAPI = new LeagueAPI(leagueAPIKey, Region.NA);
 
-
 router.get("/:searchTerm", (req, res) => {
   let accountId = req.params.searchTerm;
   LeagueAPI.initialize()
@@ -17,15 +16,14 @@ router.get("/:searchTerm", (req, res) => {
     })
     .then(function (accountInfo) {
       // do something with accountInfo
-      console.log("success server side summoner GET", accountInfo);
+      console.log("success server side match list GET", accountInfo);
       res.send(accountInfo);
       console.log(accountInfo);
     })
     .catch((error) => {
-      console.log("error in server side summoner GET", error);
+      console.log("error in server side match list GET", error);
     }); // LeagueAPI returned objects will now have details from DDRagon API.
 });
-
 
 // router.get('/:searchTerm', (req, res) => {
 //   // return all categories

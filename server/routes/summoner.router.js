@@ -9,9 +9,11 @@ let leagueAPIKey = process.env.REACT_APP_RIOT_API_KEY;
 LeagueAPI = new LeagueAPI(leagueAPIKey, Region.NA);
 
 router.get("/:searchTerm", (req, res) => {
-  let summonerName = req.params.searchTerm
+  let summonerName = req.params.searchTerm;
   LeagueAPI.initialize()
-    .then( () => {return LeagueAPI.getSummonerByName(summonerName) })
+    .then(() => {
+      return LeagueAPI.getSummonerByName(summonerName);
+    })
     .then(function (accountInfo) {
       // do something with accountInfo
       console.log("success server side summoner GET", accountInfo);
@@ -20,11 +22,8 @@ router.get("/:searchTerm", (req, res) => {
     })
     .catch((error) => {
       console.log("error in server side summoner GET", error);
-    });// LeagueAPI returned objects will now have details from DDRagon API.
-    })
-
-
-
+    }); // LeagueAPI returned objects will now have details from DDRagon API.
+});
 
 //   LeagueAPI.getSummonerByName(summonerName)
 //     .then(function (accountInfo) {

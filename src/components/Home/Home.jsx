@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
+//components
+import ChampionList from '../ChampionList/ChampionList'
 
 
 class Home extends Component {
@@ -12,7 +14,8 @@ class Home extends Component {
             type: "FETCH_SUMMONER",
             payload: this.state.summonerName
         });
-        console.log(this.state)
+        console.log(this.state);
+        this.props.history.push(`/`)
     }
 
     handleChangeFor = event => {
@@ -28,6 +31,13 @@ class Home extends Component {
                     <input type="text" onChange={this.handleChangeFor} />
                     <button type="submit">Search</button>
                 </form>
+                {/* <div>
+                    <ul>
+                        {this.props.store.match.matches.map(champion => {
+                            return <ChampionList champion={champion} />;
+                        })}
+                    </ul>
+                </div> */}
             </div>
         )
     }
