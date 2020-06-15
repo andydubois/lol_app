@@ -10,6 +10,7 @@ class SummonerPage extends Component {
 
   componentDidMount() {
     this.getSummoner();
+    this.championCount();
   }
 
   getSummoner = (event) => {
@@ -18,6 +19,28 @@ class SummonerPage extends Component {
       payload: this.state.summonerName,
     });
     console.log("Summoner page get", this.state);
+  };
+
+  championCount = (event) => {
+    let arr = this.props.store.match;
+    let champArray = [];
+    for (let i=0; i<arr.length; i++) {
+      champArray.push(arr.championObject.name)
+    };
+    let result = {};
+    //loop over array
+    for (let i = 0; i < champArray.length; i++) {
+      if (!result[champArray[i]]) {
+        result[champArray[i]] = 0;
+      }
+
+      ++result[champArray[i]]
+    }
+    this.props.dispatch({
+      type: "SET_COUNTS",
+      payload: champArray,
+    });
+    console.log("champ counts");
   };
 
   render() {
